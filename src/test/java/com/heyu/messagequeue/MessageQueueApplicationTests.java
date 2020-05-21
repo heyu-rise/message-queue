@@ -1,7 +1,5 @@
 package com.heyu.messagequeue;
 
-import java.io.UnsupportedEncodingException;
-
 import javax.annotation.Resource;
 
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
@@ -24,7 +22,7 @@ class MessageQueueApplicationTests {
 	private RocketMQTemplate rocketMQTemplate;
 
 	@Test
-	void contextLoads() throws UnsupportedEncodingException {
+	void contextLoads() {
 		rocketMQTemplate.syncSend(stringTopic, "stringTopic1");
 		rocketMQTemplate.syncSend(objectTopic, new User("heyu", 25));
 	}
