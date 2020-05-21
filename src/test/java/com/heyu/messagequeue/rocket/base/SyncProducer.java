@@ -15,14 +15,14 @@ public class SyncProducer {
 
 	public static void main(String[] args) throws Exception {
 		// 实例化消息生产者Producer
-		DefaultMQProducer producer = new DefaultMQProducer("heyus");
+		DefaultMQProducer producer = new DefaultMQProducer("heyu");
 		// 设置NameServer的地址
 		producer.setNamesrvAddr("47.93.30.98:9876");
 		// 启动Producer实例
 		producer.start();
 		for (int i = 0; i < 5; i++) {
 			// 创建消息，并指定Topic，Tag和消息体
-			Message msg = new Message("TopicTest", "TagA",
+			Message msg = new Message("heyustring", "TagA",
 					("Hello RocketMQ " + i).getBytes(RemotingHelper.DEFAULT_CHARSET));
 			// 发送消息到一个Broker
 			SendResult sendResult = producer.send(msg);

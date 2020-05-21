@@ -12,7 +12,7 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Service
-@RocketMQMessageListener(nameServer = "${rocketmq.name-server}", topic = "${heyu.rocketmq.topic.string}", consumerGroup = "heyu")
+@RocketMQMessageListener(topic = "${heyu.rocketmq.topic.string}", consumerGroup = "heyu")
 public class ConsumeStringLister implements RocketMQListener<String> {
 
     @Override
