@@ -1,6 +1,7 @@
 package com.heyu.messagequeue.active;
 
 import javax.jms.ConnectionFactory;
+import javax.jms.Topic;
 
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
 import org.springframework.context.annotation.Bean;
@@ -36,5 +37,15 @@ public class ActiveMqConfig {
 		converter.setTargetType(MessageType.TEXT);
 		converter.setTypeIdPropertyName("_type");
 		return converter;
+	}
+
+	@Bean(name = "heyuTopicObject")
+	public Topic heyuTopicObject(){
+		return () -> "heyu-topic-object";
+	}
+
+	@Bean(name = "heyuTopicString")
+	public Topic heyuTopicString(){
+		return () -> "heyu-topic-string";
 	}
 }

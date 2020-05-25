@@ -26,7 +26,12 @@ public class ActiveMqConsume {
 		log.info(JSON.toJSONString(user));
 	}
 
-	@JmsListener(destination = "heyu-topic", containerFactory = "topicFactory")
+	@JmsListener(destination = "heyu-topic-string", containerFactory = "topicFactory")
+	public void string(String user) {
+		log.info(user);
+	}
+
+	@JmsListener(destination = "heyu-topic-object", containerFactory = "topicFactory")
 	public void string(User user) {
 		log.info(JSON.toJSONString(user));
 	}

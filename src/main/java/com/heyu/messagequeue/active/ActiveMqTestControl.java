@@ -23,6 +23,12 @@ public class ActiveMqTestControl {
     private JmsTemplate jmsTemplate;
 
     @Autowired
+    private Topic heyuTopicObject;
+
+    @Autowired
+    private Topic heyuTopicString;
+
+    @Autowired
     private MessageConverter jacksonJmsMessageConverter;
 
     @GetMapping("/string")
@@ -35,10 +41,14 @@ public class ActiveMqTestControl {
         jmsTemplate.convertAndSend("heyu-test-object", new User("heyu", 25));
     }
 
-    @GetMapping("/topic")
-    public void topic(){
-        Topic topic = () -> "heyu-topic";
-        jmsTemplate.send(topic, session -> jacksonJmsMessageConverter.toMessage(new User("heyu", 25), session));
+    @GetMapping("/topic-string")
+    public void topicString(){
+        jmsTemplate.send(heyuTopicString, session -> jacksonJmsMessageConverter.toMessage("topic-string", session));
+    }
+
+    @GetMapping("/topic-object")
+    public void topicObject(){
+        jmsTemplate.send(heyuTopicObject, session -> jacksonJmsMessageConverter.toMessage(new User("heyu", 26), session));
     }
 
 }
