@@ -1,11 +1,11 @@
-package com.heyu.messagequeue.comsume;
+package com.heyu.messagequeue.rocket.consume;
 
 import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSON;
-import com.heyu.messagequeue.model.User;
+import com.heyu.messagequeue.rocket.model.User;
 
 import lombok.extern.slf4j.Slf4j;
 

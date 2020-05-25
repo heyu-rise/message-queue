@@ -15,7 +15,9 @@
  * limitations under the License.
  */
 
-package com.heyu.messagequeue.model;
+package com.heyu.messagequeue.rocket.model;
+
+import java.util.UUID;
 
 /**
  * @author heyu
@@ -48,5 +50,11 @@ public class User {
 
 	public void setUserAge(int userAge) {
 		this.userAge = userAge;
+	}
+
+
+	public static void main(String[] args) {
+		System.out.println(UUID.randomUUID().toString());
+
 	}
 }
