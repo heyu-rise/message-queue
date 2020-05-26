@@ -3,8 +3,8 @@ package com.heyu.messagequeue.active;
 import org.springframework.jms.annotation.JmsListener;
 import org.springframework.stereotype.Component;
 
-import com.alibaba.fastjson.JSON;
 import com.heyu.messagequeue.rocket.model.User;
+import com.heyu.messagequeue.utils.JsonUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -23,7 +23,7 @@ public class ActiveMqConsume {
 
 	@JmsListener(destination = "heyu-test-object")
 	public void objectListener(User user) {
-		log.info(JSON.toJSONString(user));
+		log.info(JsonUtil.obj2json(user));
 	}
 
 	@JmsListener(destination = "heyu-topic-string", containerFactory = "topicFactory")
@@ -33,6 +33,6 @@ public class ActiveMqConsume {
 
 	@JmsListener(destination = "heyu-topic-object", containerFactory = "topicFactory")
 	public void string(User user) {
-		log.info(JSON.toJSONString(user));
+		log.info(JsonUtil.obj2json(user));
 	}
 }

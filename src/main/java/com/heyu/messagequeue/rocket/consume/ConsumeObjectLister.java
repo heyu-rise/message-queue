@@ -4,8 +4,8 @@ import org.apache.rocketmq.spring.annotation.RocketMQMessageListener;
 import org.apache.rocketmq.spring.core.RocketMQListener;
 import org.springframework.stereotype.Service;
 
-import com.alibaba.fastjson.JSON;
 import com.heyu.messagequeue.rocket.model.User;
+import com.heyu.messagequeue.utils.JsonUtil;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -19,6 +19,6 @@ import lombok.extern.slf4j.Slf4j;
 public class ConsumeObjectLister implements RocketMQListener<User> {
     @Override
     public void onMessage(User message) {
-        log.info(JSON.toJSONString(message));
+        log.info(JsonUtil.obj2json(message));
     }
 }
