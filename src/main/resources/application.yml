@@ -1,0 +1,18 @@
+server:
+  port: 8080
+spring:
+  activemq:
+    broker-url: tcp://47.93.30.98:61616
+    password: admin
+    user: admin
+rocketmq:
+  name-server: 47.93.30.98:9876
+  producer:
+    group: heyu
+    sendMessageTimeout: 300000
+heyu:
+  rocketmq:
+    topic:
+      message: heyuomesssage
+      object: heyuobject
+      string: heyustring
