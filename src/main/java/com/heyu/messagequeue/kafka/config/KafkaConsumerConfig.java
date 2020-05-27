@@ -3,7 +3,6 @@ package com.heyu.messagequeue.kafka.config;
 import java.util.HashMap;
 import java.util.Map;
 
-import com.heyu.messagequeue.kafka.serializer.JacksonDeserializer;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.common.serialization.StringDeserializer;
 import org.springframework.context.annotation.Bean;

@@ -1,6 +1,5 @@
 package com.heyu.messagequeue.kafka;
 
-import com.heyu.messagequeue.rocket.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,9 +23,5 @@ public class KafkaTestControl {
         kafkaTemplate.send("heyu-string", "heyu-string");
     }
 
-    @GetMapping("/object")
-    public void object(){
-        kafkaTemplate.send("heyu-object", new User("heyu", 26));
-    }
 
 }
