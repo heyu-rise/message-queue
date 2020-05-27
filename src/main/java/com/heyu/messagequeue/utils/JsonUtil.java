@@ -90,7 +90,7 @@ public class JsonUtil {
 	 * @param clz
 	 * @return
 	 */
-	public static Object json2obj(String json, Class<?> clz) {
+	public static <T> T json2obj(String json, Class<T> clz) {
 		try {
 			mapper = getMapper();
 			return mapper.readValue(json, clz);
