@@ -5,6 +5,11 @@ spring:
     broker-url: tcp://47.93.30.98:61616
     password: admin
     user: admin
+  rabbitmq:
+    host: 47.93.30.98
+    port: 3456
+    username: admin
+    password: 123456
 rocketmq:
   name-server: 47.93.30.98:9876
   producer:
