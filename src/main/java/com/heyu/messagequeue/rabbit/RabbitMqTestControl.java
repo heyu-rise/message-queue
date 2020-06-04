@@ -19,12 +19,20 @@ public class RabbitMqTestControl {
     @Autowired
     private RabbitTemplate rabbitTemplate;
 
-    @GetMapping("/string1")
-    public void testString(){
+    @GetMapping("/queue")
+    public void queue(){
 
         rabbitTemplate.convertAndSend("heyu-string1", "heyu-string");
 
         rabbitTemplate.convertAndSend("heyu-object1", new User("heyu", 25));
+    }
+
+    @GetMapping("/topic")
+    public void topic(){
+
+        rabbitTemplate.convertAndSend("heyu-topic", "heyu.string", "heyu-string");
+
+        rabbitTemplate.convertAndSend("heyu-topic", "heyu.object", new User("heyu", 25));
     }
 
 }
