@@ -11,7 +11,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.jms.core.JmsTemplate;
 
-import com.heyu.messagequeue.rocket.model.User;
+import com.heyu.messagequeue.model.User;
 
 @SpringBootTest
 class MessageQueueApplicationTests {

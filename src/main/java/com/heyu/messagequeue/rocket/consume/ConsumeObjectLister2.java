@@ -15,8 +15,8 @@ import lombok.extern.slf4j.Slf4j;
  */
 @Slf4j
 @Service
-@RocketMQMessageListener(topic = "${heyu.rocketmq.topic.object}", consumerGroup = "heyu-object1")
-public class ConsumeObjectLister implements RocketMQListener<User> {
+@RocketMQMessageListener(topic = "${heyu.rocketmq.topic.object}", consumerGroup = "heyu-object2")
+public class ConsumeObjectLister2 implements RocketMQListener<User> {
     @Override
     public void onMessage(User message) {
         log.info(JsonUtil.obj2json(message));

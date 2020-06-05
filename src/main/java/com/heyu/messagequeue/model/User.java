@@ -15,7 +15,7 @@
  * limitations under the License.
  */
 
-package com.heyu.messagequeue.rocket.model;
+package com.heyu.messagequeue.model;
 
 import java.util.UUID;
 

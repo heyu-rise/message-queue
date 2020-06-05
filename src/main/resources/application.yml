@@ -1,20 +1,25 @@
+message:
+  queue:
+    host: 127.0.0.1
 server:
   port: 8080
 spring:
   activemq:
-    broker-url: tcp://47.93.30.98:61616
+    broker-url: tcp://${message.queue.host}:61616
     password: admin
     user: admin
   rabbitmq:
-    host: 47.93.30.98
+    host: ${message.queue.host}
     port: 3456
     username: admin
     password: 123456
 rocketmq:
-  name-server: 47.93.30.98:9876
+  name-server: ${message.queue.host}:9876
   producer:
-    group: heyu
+    group: heyu-producer
     sendMessageTimeout: 300000
+kafka:
+  bootstrap-server: ${message.queue.host}:9092
 heyu:
   rocketmq:
     topic:

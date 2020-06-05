@@ -1,6 +1,6 @@
 package com.heyu.messagequeue.rocket;
 
-import com.heyu.messagequeue.rocket.model.User;
+import com.heyu.messagequeue.model.User;
 import org.apache.rocketmq.spring.core.RocketMQTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.kafka.clients.producer.ProducerConfig;
 import org.apache.kafka.common.serialization.StringSerializer;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.kafka.core.DefaultKafkaProducerFactory;
@@ -20,6 +21,9 @@ import org.springframework.stereotype.Component;
 @Configuration
 public class KafkaProducerConfig {
 
+	@Value("${kafka.bootstrap-server}")
+	private String bootstrapServer;
+
 	@Bean
 	public KafkaTemplate<String, Object> kafkaTemplate() {
 		return new KafkaTemplate<>(producerFactory());
@@ -31,7 +35,7 @@ public class KafkaProducerConfig {
 
 	private Map<String, Object> producerConfigs() {
 		Map<String, Object> props = new HashMap<>(10);
-		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, "47.93.30.98:9092");
+		props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, bootstrapServer);
 		props.put(ProducerConfig.RETRIES_CONFIG, 0);
 		props.put(ProducerConfig.BATCH_SIZE_CONFIG, 16384);
 		props.put(ProducerConfig.LINGER_MS_CONFIG, 1);
