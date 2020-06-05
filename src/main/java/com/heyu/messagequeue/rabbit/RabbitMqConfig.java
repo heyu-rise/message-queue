@@ -24,6 +24,11 @@ public class RabbitMqConfig {
 		return template;
 	}
 
+	/**
+	 * 只要注入MessageConverter，就会替换掉默认的
+	 * 
+	 * @return jackson序列化方式
+	 */
 	@Bean
 	public MessageConverter jsonConverter() {
 		return new Jackson2JsonMessageConverter();

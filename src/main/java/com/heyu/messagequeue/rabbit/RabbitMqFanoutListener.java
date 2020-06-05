@@ -12,6 +12,9 @@ import com.heyu.messagequeue.utils.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ * 
+ * 如果要实现广播，必须先在配置文件注册queue
+ * 
  * @author heyu
  * @date 2020/6/4
  */

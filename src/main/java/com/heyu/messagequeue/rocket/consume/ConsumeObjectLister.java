@@ -10,6 +10,9 @@ import com.heyu.messagequeue.utils.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 
 /**
+ *
+ * 在同一个服务中，不能有相同的 consumerGroup，集群可以
+ *
  * @author heyu
  * @date 2020/5/18
  */
@@ -17,8 +20,8 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @RocketMQMessageListener(topic = "${heyu.rocketmq.topic.object}", consumerGroup = "heyu-object1")
 public class ConsumeObjectLister implements RocketMQListener<User> {
-    @Override
-    public void onMessage(User message) {
-        log.info(JsonUtil.obj2json(message));
-    }
+	@Override
+	public void onMessage(User message) {
+		log.info(JsonUtil.obj2json(message));
+	}
 }

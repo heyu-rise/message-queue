@@ -26,11 +26,15 @@ public class ActiveMqConfig {
 			DefaultJmsListenerContainerFactoryConfigurer configure) {
 		DefaultJmsListenerContainerFactory factory = new DefaultJmsListenerContainerFactory();
 		configure.configure(factory, connectionFactory);
+		// 是否为订阅注册模式
 		factory.setPubSubDomain(true);
 		factory.setMessageConverter(jacksonJmsMessageConverter());
 		return factory;
 	}
 
+	/**
+	 * @return jackson序列化
+	 */
 	@Bean(name = "jacksonJmsMessageConverter")
 	public MessageConverter jacksonJmsMessageConverter() {
 		MappingJackson2MessageConverter converter = new MappingJackson2MessageConverter();
@@ -40,12 +44,12 @@ public class ActiveMqConfig {
 	}
 
 	@Bean(name = "heyuTopicObject")
-	public Topic heyuTopicObject(){
+	public Topic heyuTopicObject() {
 		return () -> "heyu-topic-object";
 	}
 
 	@Bean(name = "heyuTopicString")
-	public Topic heyuTopicString(){
+	public Topic heyuTopicString() {
 		return () -> "heyu-topic-string";
 	}
 }
