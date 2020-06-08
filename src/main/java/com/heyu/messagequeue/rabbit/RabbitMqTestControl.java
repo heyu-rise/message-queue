@@ -16,23 +16,23 @@ import com.heyu.messagequeue.model.User;
 @RequestMapping("/rabbit")
 public class RabbitMqTestControl {
 
-    @Autowired
-    private RabbitTemplate rabbitTemplate;
+	@Autowired
+	private RabbitTemplate rabbitTemplate;
 
-    @GetMapping("/queue")
-    public void queue(){
+	@GetMapping("/queue")
+	public void queue() {
 
-        rabbitTemplate.convertAndSend("heyu-queue-string", "heyu-string");
+		rabbitTemplate.convertAndSend("heyu-queue-string", "heyu-string");
 
-        rabbitTemplate.convertAndSend("heyu-queue-object", new User("heyu", 25));
-    }
+		rabbitTemplate.convertAndSend("heyu-queue-object", new User("heyu", 25));
+	}
 
-    @GetMapping("/topic")
-    public void topic(){
+	@GetMapping("/topic")
+	public void topic() {
 
-        rabbitTemplate.convertAndSend("heyu-fanout-string", "", "heyu-string");
+		rabbitTemplate.convertAndSend("heyu-fanout-string", "", "heyu-string");
 
-        rabbitTemplate.convertAndSend("heyu-fanout-object", "", new User("heyu", 25));
-    }
+		rabbitTemplate.convertAndSend("heyu-fanout-object", "", new User("heyu", 25));
+	}
 
 }
