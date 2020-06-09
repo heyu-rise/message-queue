@@ -17,11 +17,12 @@
 
 package com.heyu.messagequeue.model;
 
-import java.util.UUID;
+import lombok.ToString;
 
 /**
  * @author heyu
  */
+@ToString
 public class User {
 
 	private String userName;
@@ -52,9 +53,4 @@ public class User {
 		this.userAge = userAge;
 	}
 
-
-	public static void main(String[] args) {
-		System.out.println(UUID.randomUUID().toString());
-
-	}
 }
