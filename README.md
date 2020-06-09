@@ -199,6 +199,8 @@ spring:
 	rabbitTemplate.convertAndSend("heyu-queue-object", new User("heyu", 25));
 ```
 
+> 在这里第一个参数是routingKey为不是queue，但在这种情况下，routingKey就等于queue，它会把消息发送给相同名字queue
+
 接收实现
 
 ```java
